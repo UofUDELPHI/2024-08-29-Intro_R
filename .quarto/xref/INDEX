@@ -1,5 +1,14 @@
 {
   "index.qmd": {
     "index.html": "ed6935ed"
+  },
+  "content/complete/01_r_code_intro.qmd": {
+    "01_r_code_intro.html": "ba6cbce3"
+  },
+  "content/complete/07_dplyr.qmd": {
+    "07_dplyr.html": "b77e4498"
+  },
+  "content/complete/08_ggplot2.qmd": {
+    "08_ggplot2.html": "04e789e3"
   }
 }

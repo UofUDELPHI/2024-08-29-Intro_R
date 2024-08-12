@@ -34,25 +34,26 @@ subtitle: "University of Utah"
 
 Note that the schedule below serves as a guideline. The start, end, and break times are fixed, but timing for each topics covered may vary as we may go faster or slower through the content.
 
+**Note that morning snacks and lunch will be provided on both days**.
+
 ### Day 1
 
 
-| Time  | Topic     | Incomplete .qmd |  Complete .qmd |
-| ----:|:----|:---------------|:-----------------|
-| 9:00   | Introduction and Setup |   |   |
-| 9:30    | Introduction to RStudio and Quarto |    | |
-| 10:00   | Introduction to Coding with R |   | |
-| 10:30   | [Break] |   |    |
-| 10:45   | Variables |  |     |
-| 11:30   | Types | | |
-| 12:00  | [Lunch] | |    |
-| 1:00   | Vectors | |  |
-| 2:30   | [Break] | |    |
-| 2:45   | Packages |  |    |
-| 3:00   | Loading Data into R |  |    |
-| 3:30   | Data Frames with "Base R" |  |   |
-| 4:00   | [End] |  |    |
-
+| Time  | Topic     | Incomplete .qmd |  Complete .qmd | HTML output |
+| ----:|:----|:---------------|:-----------------|:-------|
+| 9:00   | Introduction and Setup |   |  | [HTML](content/complete/00_rstudio_quarto.html) |
+| 9:45   | Introduction to Coding with R |   | [01_r_code_intro.qmd](content/complete/01_r_code_intro.qmd "download")  | HTML](content/complete/01_r_code_intro.html)|
+| 10:30   | [Break] |   |    | |
+| 10:45   | Variables |  |     | | 
+| 11:30   | Types | | | | 
+| 12:00  | [Lunch] | |    | | 
+| 1:00   | Vectors | |  | | 
+| 2:30   | [Break] | |    | | 
+| 2:45   | Packages |  |    | | 
+| 3:00   | Loading Data into R |  |    | | 
+| 3:30   | Data Frames with "Base R" |  |   |  |
+| 4:00   | [End] |  |    | | 
+ 
 
 
 ### Day 2

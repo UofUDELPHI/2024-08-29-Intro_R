@@ -1,0 +1,196 @@
+---
+title: "Introduction to coding in R"
+author: "Rebecca Barter"
+format: html
+embed-resources: true
+---
+
+
+## Using R as a calculator in the console
+
+We can write R code directly in the console. 
+
+::: {.callout}
+## Exercise
+
+Use R as a calculator to compute `1 + 1` in the console
+:::
+
+
+
+
+
+
+
+You can do mathematical calculations in R using the following symbols:
+
+* Parentheses: `(`, `)`
+* Exponents: `^` or `**`
+* Multiply: `*`
+* Divide: `/`
+* Add: `+`
+* Subtract: `-`
+
+
+
+::: {.callout}
+## Exercise
+
+Compute 3 squared in the console
+:::
+
+
+::: {.callout}
+## Exercise
+
+Compute 2 divided by 100,000 in the console
+:::
+
+
+
+::: {.callout}
+## Exercise
+
+Use the logarithm function `log()` to compute the logarithm of 10 in the console
+:::
+
+
+
+
+
+
+
+
+
+
+
+## Writing R code in a quarto document
+
+
+
+The problem with only ever writing your R code in the console is that once you quit RStudio, there will be no record of the code that you ran.
+
+Writing your code in a quarto help you to save your code and results in a *reproducible* way AND communicate your findings to other people.
+
+
+
+
+
+
+
+
+### Code chunks
+
+
+In a quarto document, like this one, you will write your r code in "code chunks" like this box below:
+
+```{r}
+
+```
+
+For example, you can ask R to compute 1+1:
+
+```{r}
+1 + 1
+```
+
+You can view the "output" (result) of your code by either (a) *rendering* your quarto document, or (b) running your code in the *console*.
+
+
+*Question:* Why is there a `[1]` before the output (`[1] 2`)? This is just specifying that `2` is the first "entry" of the output.
+
+
+
+::: {.callout}
+## Exercise
+
+Create a new code chunk and compute 4 times 5
+:::
+
+
+Solution: 
+
+```{r}
+4 * 5
+```
+
+
+::: {.callout}
+## Exercise
+
+Inside your code chunk above, add some code to compute 3 squared (`3^2`). What do you think will happen when you render your document? Will both lines of code be computed, or just the final one?
+:::
+
+
+Solution: 
+
+```{r}
+4 * 5
+3^2
+```
+
+
+
+
+
+## Code comments
+
+R will ignore any text that follows a `#` symbol, so we can add "comments" to our code using `#` to make it easier to understand. 
+
+```{r}
+# compute 4 times 5
+4 * 5
+# compute 3 squared
+3^2
+```
+
+
+
+
+
+
+## Chunk options
+
+Take a look at the following code chunk. 
+
+What do you think this code chunk will look like in the rendered html document?
+
+``` {r}
+#| echo: false
+2 * 2
+```
+
+
+
+
+
+
+
+
+
+This `#|` syntax at the beginning of a code chunk corresponds to various options for when the code chunk is "rendered" into html (or pdf).
+
+`#| echo: false` hides the code from the html output file, while still showing the output (`[1] 4`). 
+
+
+
+
+
+::: {.callout}
+## Exercise
+
+Can you figure out what the output of the following code chunk will look like (will the code and code comment be shown in the output)? 
+
+``` {{r}}
+#| echo: true
+
+# two times three
+2 * 3
+```
+:::
+
+
+
+
+
+
