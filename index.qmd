@@ -36,37 +36,41 @@ Note that the schedule below serves as a guideline. The start, end, and break ti
 
 **Note that morning snacks and lunch will be provided on both days**.
 
+
+### Download files and data
+
+[Click here](content.zip "download") to download all of the complete and incomplete .qmd files and data files we will be using throughout the workshop.
+
+
 ### Day 1
 
 
-| Time  | Topic     | Incomplete .qmd |  Complete .qmd | HTML output |
-| ----:|:----|:---------------|:-----------------|:-------|
-| 9:00   | Introduction and Setup |   |  | [HTML](content/complete/00_rstudio_quarto.html) |
-| 9:45   | Introduction to Coding with R |   | [01_r_code_intro.qmd](content/complete/01_r_code_intro.qmd "download")  | HTML](content/complete/01_r_code_intro.html)|
-| 10:30   | [Break] |   |    | |
-| 10:45   | Variables |  |     | | 
-| 11:30   | Types | | | | 
-| 12:00  | [Lunch] | |    | | 
-| 1:00   | Vectors | |  | | 
-| 2:30   | [Break] | |    | | 
-| 2:45   | Packages |  |    | | 
-| 3:00   | Loading Data into R |  |    | | 
-| 3:30   | Data Frames with "Base R" |  |   |  |
-| 4:00   | [End] |  |    | | 
+| Time  | Topic     | Content |
+| ----:|:----|:---------------|
+| 9:00   | Introduction and Setup |   [Setup content](content/complete/00_rstudio_quarto.html) |
+| 9:45   | Introduction to Coding with R | [Intro content](content/complete/01_r_code_intro.html)|
+| 10:30   | [Break] |   |   
+| 10:45   | Variables |    [Variables content](content/complete/02_variables.html)|
+| 11:30   | Types |  [Types content](content/complete/03_types.html)|
+| 12:00  | [Lunch] | |    
+| 1:00   | Vectors |  [Vectors content](content/complete/04_vectors.html)|
+| 2:30   | [Break] | |    
+| 2:45   | Loading Data into R |  [Data loading content](content/complete/05_data_loading.html)|
+| 3:15   | Data Frames with "Base R" |  [Data frames "base R" content](content/complete/06_df_base_r.html)|
+| 4:00   | [End] |  |  
  
 
 
 ### Day 2
 
 
-| Time   | Topic           | Incomplete .qmd | Complete .qmd | 
-| ----:|:----|:---------------|:-----------------|
-| 9:00    | Data Frames with dplyr (select and filter)  | | |
-| 10:30   | [Break] |   |   |
-| 10:45   | Data Frames with dplyr (mutate and summarize) | |  | 
-| 12:00   | [Lunch] |   |   |
-| 1:00   | Data Visualization with ggplot2  | |
-| 2:30   | [Break] |   |   |
-| 2:45   | Advanced ggplot2 |  | |
-| 3:30   | Other topics |  | |
-| 4:00  | [End] |   |   |
+| Time   | Topic           | Content
+| ----:|:----|:---------------|
+| 9:00    | Data Frames with dplyr (select and filter)  | [dplyr content](content/complete/07_dplyr.html) |
+| 10:30   | [Break] |   | 
+| 10:45   | Data Frames with dplyr (mutate and summarize) | [dplyr content](content/complete/07_dplyr.html) |
+| 12:00   | [Lunch] |   |   
+| 1:00   | Data Visualization with ggplot2  | [ggplot2 content](content/complete/08_ggplot2.html)|
+| 2:30   | [Break] |   |   
+| 2:45   | Advanced ggplot2 |   [ggplot2 content](content/complete/08_ggplot2.html)|
+| 4:00  | [End] |   |   

@@ -1,0 +1,212 @@
+---
+title: "Data frames with base R"
+format: html
+embed-resources: true
+editor_options: 
+  chunk_output_type: console
+---
+
+
+
+## Working with data frames using "Base R"
+
+
+Let's load the gapminder dataset
+
+```{r}
+gapminder <- read.csv("data/gapminder.csv")
+```
+
+
+To extract individual entries from a data frame using base R
+
+```{r}
+# extract the entry in the 3rd row and 4th column
+gapminder[3, 4]
+# extract the entries in the 3rd and 4th rows and 4th column
+gapminder[c(3, 4), 4]
+# extract the entry in the 3rd and 4th rows and 4th and 5th columns
+gapminder[c(3, 4), c(4, 5)]
+```
+
+What type of object are these?
+
+
+
+
+
+
+
+
+
+### Extracting entire columns from a data frame
+
+There are many ways to extract a single *column* from a data frame:
+
+```{r}
+# Extract the 4th column
+head(gapminder[, 4])
+# extract the lifeExp column (using [,] syntax)
+head(gapminder[, "lifeExp"])
+# extract the lifeExp column (using $ syntax)
+head(gapminder$lifeExp)
+```
+
+What type of object are these?
+
+
+
+
+What do you think the output of the following code will be
+
+```{r}
+head(gapminder[3])
+head(gapminder["year"])
+```
+
+A data frame can be thought of as a collection (technically a "list") of vectors, so the third entry, is the third vector.
+
+Notice the difference in the output between these two ways of extracting the third column:
+
+```{r}
+head(gapminder[, 3])
+head(gapminder[3])
+```
+
+To extract the third vector/column directly, you can use double square parentheses `[[]]`. This is actually *list* notation.
+
+```{r}
+# extract the third column with `[[]]` using both numbered indexing and named indexing
+head(gapminder[[3]])
+head(gapminder[["year"]])
+```
+
+
+
+
+
+
+
+
+## Exercise
+
+
+1. Extract the `gdpPercap` entry for the fourth and fifth rows
+
+```{r}
+gapminder[c(4, 5), "gdpPercap"]
+gapminder[c(4, 5), 6]
+gapminder[c(4, 5), ncol(gapminder)]
+```
+
+
+2. Extract the entire `lifeExp` column in as many different ways as you can (you may want to just look at the head() of your outputs).
+
+
+```{r}
+# 7 ways of extracting the lifeExp column
+head(gapminder[, 4])
+head(gapminder[, "lifeExp"])
+
+head(gapminder$lifeExp)
+
+head(gapminder[4])
+head(gapminder["lifeExp"])
+
+head(gapminder[[4]])
+head(gapminder[["lifeExp"]])
+```
+
+
+
+
+
+
+
+
+## Using logical indexing
+
+Let's create a logical vector, called `is_aus` that is `TRUE` when country is "Australia" and `FALSE` otherwise.
+
+
+```{r}
+# create vector is_usa
+is_aus <- gapminder$country == "Australia"
+# test that is_usa contains at least some TRUE values
+head(is_aus, 100)
+sum(is_aus)
+```
+
+Use `is_usa` to filter to just the rows for the US.
+
+```{r}
+# use is_usa to filter to just the rows for the US
+gapminder[is_aus, ]
+```
+
+
+
+
+
+
+
+
+## Removing columns using negative indexing
+
+You can use negative indexing to remove columns
+
+```{r}
+# remove the third column from gapminder (don't overwrite gapminder)
+head(gapminder[-3])
+# if you wanted to update the gapminder dataset:
+# gapminder <- gapminder[-3]
+```
+
+
+
+
+
+
+## Adding columns
+
+You can also use the above syntaxes to *add* new columns
+
+```{r}
+# create a copy of gapminder called gapminder_tmp
+gapminder_tmp <- gapminder
+# add a new column to gapminder_tmp called gap, which is the product of pop and gdpPercap
+gapminder_tmp$gdp <- gapminder_tmp$gdpPercap * gapminder_tmp$pop
+# look at the head of gapminder
+head(gapminder_tmp)
+```
+
+
+
+
+
+
+
+
+## Exercise
+
+Modify the `lifeExp` column of `gapminder_tmp` so that it is rounded to the nearest integer (use `round()`). 
+
+*Challenge:* do this JUST for the Australia rows. Check your output for the just the country and lifeExp columns for the first 100 rows
+
+*Hint:* to undo any changes to `gapminder_tmp`, reassign it to the original gapminder object: `gapminder_tmp <- gapminder`
+
+```{r}
+# for all rows:
+gapminder_tmp$lifeExp <- round(gapminder_tmp$lifeExp)
+head(gapminder_tmp)
+```
+
+```{r}
+# reset gapminder_tmp 
+gapminder_tmp <- gapminder
+gapminder_tmp[gapminder_tmp == "Australia", ]$lifeExp <- round(gapminder_tmp[gapminder_tmp == "Australia", ]$lifeExp)
+# look at just the country and lifeExp columns for the first 100 rows
+head(gapminder_tmp, 100)[, c("country", "lifeExp")]
+```
+
+
