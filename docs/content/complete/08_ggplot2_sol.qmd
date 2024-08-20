@@ -1,0 +1,449 @@
+---
+title: "Data visualization with ggplot2"
+format: html
+editor_options: 
+  chunk_output_type: console
+embed-resources: true
+---
+
+
+
+Let's load in the gapminder dataset
+
+```{r}
+#| message: false
+# load the tidyverse, and gapminder dataset using read_csv()
+library(tidyverse)
+gapminder <- read_csv("data/gapminder.csv")
+gapminder
+```
+
+
+The ggplot2 library is loaded as a part of the tidyverse.
+
+
+
+
+
+
+
+
+## Using ggplot2 to visualize data
+
+Let's create our first visualization using ggplot2's "layered grammar of graphics". 
+
+To create a ggplot figure, you start by creating an empty ggplot2 canvas, to which you provide your dataset
+
+```{r}
+ggplot(gapminder)
+```
+
+Then you *add* (with `+`) a "geom_" layer. For a scatterplot, this is `geom_point()`. 
+
+Inside your geom layer, you need to specify the aesthetics using `aes()`, such as the x- and y-coordinates of the points.
+
+
+```{r}
+# create a scatterplot of gdpPercap (x) against lifeExp (y)
+ggplot(gapminder) + 
+  geom_point(aes(x = gdpPercap, y = lifeExp))
+```
+
+
+
+
+
+
+### Exercise
+
+Create a ggplot scatterplot figure of population against life expectancy
+
+```{r}
+ggplot(gapminder) + 
+  geom_point(aes(x = pop, y = lifeExp))
+```
+
+
+
+
+
+
+### Exercise 
+
+Recreate the previous plot using only the data from the year 2007.
+
+Hint: you can pipe the gapminder object into the ggplot function.
+
+
+```{r}
+gapminder |> 
+  filter(year == 2007) |> 
+  ggplot() + 
+  geom_point(aes(x = pop, y = lifeExp))
+
+gapminder_2007 <- gapminder |> filter(year == 2007)
+ggplot(gapminder_2007) + 
+  geom_point(aes(x = pop, y = lifeExp))
+```
+
+
+
+
+
+
+
+
+
+
+## Defining ggplot2 aesthetics
+
+
+We've seen the `x` and `y` point aesthetics, but there are many others too.
+
+For example, you can specify the `color` of the points using the `color` aesthetic:
+
+```{r}
+# use gapminder_2007 to create a scatterplot of gdpPercap (x) against lifeExp (y)
+# where color is based on continent
+ggplot(gapminder_2007) + 
+  geom_point(aes(x = gdpPercap, y = lifeExp, color = continent))
+```
+
+To specify a global aesthetic that does not depend on a column in your data, you need to specify it *outside* the `aes()` function.
+
+```{r}
+# use gapminder_2007 to create a scatterplot of gdpPercap (x) against lifeExp (y)
+# where all points are colored blue
+ggplot(gapminder_2007) + 
+  geom_point(aes(x = gdpPercap, y = lifeExp), color = "blue")
+```
+
+
+
+
+
+
+
+
+
+
+### Exercise
+
+Specify the `shape` aesthetic of each point in two ways:
+
+1. Provide a different shape for each continent
+
+2. Make all points "square"
+
+
+```{r}
+# 1
+ggplot(gapminder_2007) + 
+  geom_point(aes(x = gdpPercap, 
+                 y = lifeExp, 
+                 shape = continent))
+# 2 
+ggplot(gapminder_2007) + 
+  geom_point(aes(x = gdpPercap, 
+                 y = lifeExp), 
+             shape = "square")
+```
+
+
+
+
+
+
+
+
+### Specifying transparency
+
+Sometimes when you have a lot of data points, you might want to add some transparency. You can do this using the `alpha` argument. `alpha` takes values between 0 and 1. `alpha = 1` is not transparent at all, and `alpha = 0` is completely transparent. 
+
+```{r}
+# add transparency to the 2007 scatterplot of gdpPercap (x) against lifeExp (y)
+ggplot(gapminder_2007) + 
+  geom_point(aes(x = gdpPercap, y = lifeExp), 
+             alpha = 0.5)
+```
+
+
+
+
+
+### Exercise 
+
+Recreate the 2007 gdpPercap vs lifeExp plot in which you color by continent, size is determined by population, and the points have a transparency of 0.5.
+
+
+```{r}
+ggplot(gapminder_2007) + 
+  geom_point(aes(x = gdpPercap, y = lifeExp, 
+                 color = continent, size = pop), 
+             alpha = 0.5)
+```
+
+
+
+
+
+
+
+
+## Line plots
+
+Let's create a line plot of lifeExp by year for each country in the Americas.
+
+```{r}
+# create a line plot for each country in the Americas
+gapminder |> 
+  filter(continent == "Americas") |> 
+  ggplot() + 
+  geom_line(aes(x = year, 
+                y = lifeExp, 
+                # if you want separate lines, you need to provide a group variable
+                group = country))
+```
+
+
+
+
+
+
+
+
+
+
+## Exercise
+
+Compute the average life expectancy for each continent for each year, and then create a line plot of the average life expectancy for each continent over time.
+
+```{r}
+gapminder |> 
+  group_by(continent, year) |> 
+  summarize(mean_life_exp = mean(lifeExp)) |> 
+  ggplot() +
+  geom_line(aes(x = year, 
+                y = mean_life_exp, 
+                color = continent))
+```
+
+
+
+
+
+
+
+
+
+
+
+## Boxplots
+
+
+Let's create some boxplots of lifeExp for each continent
+
+```{r}
+# create boxplots of the lifeExp for each continent
+ggplot(gapminder) + 
+  geom_boxplot(aes(x = continent, y = lifeExp))
+```
+
+
+
+
+
+## Histograms
+
+Let's create a histogram of lifeExp
+
+```{r}
+# create a histogram of lifeExp
+ggplot(gapminder) + 
+  geom_histogram(aes(x = lifeExp))
+```
+
+
+
+
+
+
+
+
+
+## Bar charts
+
+You can create a *count* bar chart, by providing a categorical (character/factor) variable as your x-aesthetic to `geom_bar()`
+
+```{r}
+# create a bar chart of the continent *counts*
+ggplot(gapminder) +
+  geom_bar(aes(x = continent))
+```
+
+
+
+If you want to create bar charts where you specify the height of each bar based on a variable in your data, you need to use `geom_col()` instead of `geom_bar()`.
+
+```{r}
+# create a bar chart of the average lifeExp for each continent using geom_col()
+gapminder |>
+  group_by(continent) |>
+  summarize(mean_life_exp = mean(lifeExp)) |>
+  ggplot() +
+  geom_col(aes(x = continent, y = mean_life_exp))
+```
+
+
+
+
+
+
+
+## Layering geom_layers
+
+You can add multiple layers of geoms in the same plot.
+
+```{r}
+# (from the exercise above) compute the average lifeExp for each continent-year 
+# combination, then create a line plot of the mean_life_exp over time for each 
+# continent, and then 
+# add the points on top of the line
+gapminder |> 
+  group_by(continent, year) |> 
+  summarize(mean_life_exp = mean(lifeExp)) |> 
+  ggplot(aes(x = year, 
+             y = mean_life_exp, 
+             color = continent)) +
+  geom_line() + 
+  geom_point()
+```
+
+
+
+
+
+
+
+
+
+## Getting fancy with ggplot2
+
+### Transformations
+
+You can apply log-scale transformations to your axis by adding a scale layer.
+
+```{r}
+# for the 2007 gdpPercap-lifeExp scatterplot colored by continent
+# add a log10 scale layer to the x-axis 
+ggplot(gapminder_2007) + 
+  geom_point(aes(x = gdpPercap, 
+                 y = lifeExp, 
+                 color = continent)) + 
+  scale_x_log10()
+```
+
+
+
+
+
+
+
+
+### Labels
+
+You can clean the labels of your figure using the `labs()` function
+
+```{r}
+# take your previous plot, add nice labels using `labs()`
+# save the ggplot2 object as my_scatter
+my_scatter <- ggplot(gapminder_2007) + 
+  geom_point(aes(x = gdpPercap, 
+                 y = lifeExp, 
+                 color = continent)) + 
+  scale_x_log10() + 
+  labs(x = "GDP per capita", y = "Life expectancy", title = "GDP per cap vs life expectancy")
+my_scatter
+```
+
+
+
+
+
+### Themes
+
+You can change the theme of your figure by adding a themes layer
+
+```{r}
+# try out a few themes layers: theme_classic(), theme_bw(), theme_dark()
+my_scatter + theme_classic()
+my_scatter + theme_bw()
+my_scatter + theme_dark()
+
+
+ggplot(gapminder_2007) + 
+  geom_point(aes(x = gdpPercap, 
+                 y = lifeExp, 
+                 color = continent)) + 
+  scale_x_log10() + 
+  labs(x = "GDP per capita", y = "Life expectancy", title = "GDP per cap vs life expectancy") + 
+  theme_dark()
+```
+
+
+
+
+
+
+
+
+### Faceted grids
+
+You can create a grid of plots using `facet_wrap()`.
+
+```{r}
+# create a line plot of lifeExp over time for each country, separately for each continent
+ggplot(gapminder) + 
+  geom_line(aes(x = year, y = lifeExp, group = country),
+            alpha = 0.2) + 
+  facet_wrap(~continent, ncol = 2)
+```
+
+
+
+
+
+
+
+### Project exercise: world happiness
+
+Load in the world happiness dataset (`whr_2023.csv`). Look at the data dictionary provided. Identify which variable indicates the country's happiness score.
+
+Note that there are many missing values (`NA`) in this data. If you want to compute a mean of a variable with missing values, you need to specify the `na.rm = TRUE`. If you need to, you can also use the `drop_na()` dplyr function to remove all rows with missing values (but this is not necessarily recommended).
+
+```{r}
+mean(c(1, 4, NA, 2))
+mean(c(1, 4, NA, 2), na.rm = TRUE)
+```
+
+Conduct some explorations of the data using your dplyr and ggplot2 skills. Create at least one interesting polished plot. You are welcome to look at just one year, or even just one country!
+
+Make sure that your plot has a clear takeaway message. Remember that less is sometimes more: just because you can add a billion things to your plot, doesn't mean that you should!
+
+One idea: Look at Australia's happiness score (life_ladder) over time.
+
+```{r}
+happiness <- read_csv("data/whr_2023.csv")
+happiness
+```
+
+```{r}
+happiness |>
+  filter(country_name == "Australia", year >= 2010) |>
+  ggplot() +
+  geom_line(aes(x = year, y = life_ladder),
+             col = "firebrick", linewidth = 1.1) +
+  theme_classic() +
+  labs(x = "Year", y = "Happiness score", title = "Australia's decreasing happiness trend")
+```
+

@@ -1,0 +1,439 @@
+---
+title: "Types"
+author: "Rebecca Barter"
+format: html
+editor_options: 
+  chunk_output_type: console
+embed-resources: true
+---
+
+
+## Object types
+
+The main types of objects in R are:
+
+- Numeric type object
+
+- Character type object, e.g., "California", "John Doe"
+
+- Logical type object, TRUE or FALSE
+
+
+### Numeric objects
+
+```{r}
+# Use the class function to determine the class of the value 1
+
+```
+
+```{r}
+# Use the class function to determine the class of the value -5
+
+```
+
+```{r}
+# Use the class function to determine the class of the value 2.3
+
+```
+
+
+
+```{r}
+# define y to be 2 * 3 + 1
+
+# print y
+
+```
+
+Identify the class of `y`:
+
+```{r}
+# identify the class of y
+
+```
+
+If your object is "numeric", you can do mathematical computations with it:
+
+```{r}
+# compute y + 2
+
+# compute y cubed
+
+```
+
+
+### Character objects
+
+```{r}
+# print out the value "banana"
+
+```
+
+
+
+Identify the class of the word "banana"
+
+```{r}
+# identify the class of the word "banana"
+
+```
+
+
+Try it without the quotes:
+
+```{r}
+# identify the class of the word banana (without quotes)
+
+```
+
+
+
+Let's define a variable with character type
+
+
+```{r}
+# define a variable, char, that contains the character "banana"
+
+```
+
+Let's ask what type `char` has
+
+```{r}
+# identify the class of char
+
+```
+
+
+
+
+
+Let's define a variable that contains "1"
+
+```{r}
+# define a variable called var_one that contains "1" (with quotes)
+
+```
+
+What is the class of `var_one`?
+
+
+```{r}
+# identify the class of var_one
+
+```
+
+
+```{r}
+# Identify the class of the *output* of the class() function?
+
+```
+
+Let's try to do some math with our character variable
+
+```{r}
+# add char + 1
+
+```
+
+
+
+### Logical objects
+
+
+The two boolean/logical values are `TRUE` and `FALSE`
+
+```{r}
+# print out TRUE 
+
+# print out FALSE
+
+```
+
+```{r}
+# identify the class of TRUE
+
+# identify the class of FALSE
+
+```
+
+
+
+Define a logical variable
+
+```{r}
+# define a logical_var containing TRUE
+
+```
+
+```{r}
+# identify the class of logical_var
+
+```
+
+Can we do mathematical operations with logical values?
+
+```{r}
+# Try to subtract 3 from logical_var
+
+# Try to multiply FALSE by 4
+
+```
+
+
+
+
+
+
+
+### Exercise
+
+Which of the following computations will work?
+
+```{r}
+#| error: true
+"TRUE" * 4
+"banana" + "apple"
+FALSE + 5
+TRUE + "TRUE"
+```
+
+
+
+
+
+
+
+
+
+## Type conversions
+
+
+Let's define a variable of each of the three main types.
+
+```{r}
+# define a numeric variable, numeric_var, containing 12.5
+
+# define a character variable, character_var, containing some text
+
+# define a logical variable, logical_var, containing FALSE
+
+```
+
+Let's check the class of each variable 
+
+```{r}
+# check the class of each of the variables defined above
+
+```
+
+
+
+
+
+
+### Converting numeric values to other types
+
+
+Let's try to convert the numeric object to a character and logical type
+
+
+```{r}
+# use the as.character() function to convert numeric_var to a character type
+
+```
+
+Has this modified `numeric_var`?
+
+
+
+
+```{r}
+# use the as.logical() function to convert numeric_var to a logical type
+
+```
+
+
+```{r}
+# convert -2 to a logical
+
+# convert 0.33 to a logical
+
+# convert 0 to a logical
+```
+
+
+Numbers can be converted to logical type using `as.logical()`, but all numbers will be converted to `TRUE`, except for 0, which is converted to `FALSE`.
+
+
+
+
+
+
+
+### Converting character values to other types
+
+Let's now try to convert the character object to numeric and logical types
+
+
+```{r}
+# use the as.numeric() function to convert character_var to a numeric type
+
+```
+
+```{r}
+# use the as.logical() function to convert character_var to a logical type
+
+```
+
+
+**Converting character values to other types typically results in a "missing value" `NA`**
+
+```{r}
+# try to do some math with NA
+
+```
+
+
+
+What about when the character is a quoted number?
+
+```{r}
+# try to use as.numeric() to convert "2.3" to a numeric type
+
+# try to use as.numeric() to convert "2.3 apples" to a numeric type
+
+```
+
+
+
+
+
+
+
+
+### Converting logical values to other types
+
+Let's see what happens when we convert logical type objects to numeric and character types
+
+
+```{r}
+# use the as.numeric() function to convert logical_var to a numeric type
+
+```
+
+```{r}
+# use as.character() function to convert logical_var to a character type
+
+```
+
+
+
+
+### Exercise
+
+What will the output of the following code chunks be?
+
+```{r}
+as.numeric("TRUE") + 3
+```
+
+```{r}
+as.character(TRUE + 12)
+```
+
+```{r}
+as.logical(as.numeric("35"))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+## Logical operations
+
+
+
+```{r}
+x <- 2
+y <- 4
+```
+
+Let's ask some questions about x and y
+
+```{r}
+# is x equal to 2?
+
+```
+
+```{r}
+# ask is x less than or equal to 1
+
+```
+
+```{r}
+# Is x equal to y?
+
+```
+
+```{r}
+# Is x *not* equal to y (in two different ways)?
+
+```
+
+```{r}
+# is x strictly greater than y?
+
+```
+
+```{r}
+# is x greater than or equal to y
+
+```
+
+```{r}
+# is x strictly less than y
+
+```
+
+
+
+
+
+
+
+What about character variables?
+
+```{r}
+x <- "apple"
+y <- "banana"
+```
+
+```{r}
+# is x > y
+
+```
+
+```{r}
+# is x < y
+
+```
+
+```{r}
+# is x equal to apple
+
+```
+
+```{r}
+# negate the question
+
+```
+
+
+

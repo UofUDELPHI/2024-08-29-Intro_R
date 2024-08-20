@@ -1,0 +1,462 @@
+---
+title: "Types"
+author: "Rebecca Barter"
+format: html
+editor_options: 
+  chunk_output_type: console
+embed-resources: true
+---
+
+
+## Object types
+
+The main types of objects in R are:
+
+- Numeric type object
+
+- Character type object, e.g., "California", "John Doe"
+
+- Logical type object, TRUE or FALSE
+
+
+### Numeric objects
+
+```{r}
+# Use the class function to determine the class of the value 1
+class(1)
+```
+
+```{r}
+# Use the class function to determine the class of the value -5
+class(-5)
+```
+
+```{r}
+# Use the class function to determine the class of the value 2.3
+class(2.3)
+```
+
+
+
+```{r}
+# define y to be 2 * 3 + 1
+y <- 2 * 3 + 1
+# print y
+y
+```
+
+Identify the class of `y`:
+
+```{r}
+# identify the class of y
+class(y)
+```
+
+If your object is "numeric", you can do mathematical computations with it:
+
+```{r}
+# compute y + 2
+y + 2
+# compute y cubed
+y^3
+```
+
+
+### Character objects
+
+```{r}
+# print out the value "banana"
+"banana"
+```
+
+
+
+Identify the class of the word "banana"
+
+```{r}
+# identify the class of the word "banana"
+class("banana")
+```
+
+
+Try it without the quotes:
+
+```{r}
+#| error: true
+# identify the class of the word banana (without quotes)
+class(banana)
+```
+
+
+
+Let's define a variable with character type
+
+
+```{r}
+# define a variable, char, that contains the character "banana"
+char <- "banana"
+```
+
+Let's ask what type `char` has
+
+
+```{r}
+# identify the class of char
+class(char)
+```
+
+
+
+
+
+Let's define a variable that contains "1"
+
+```{r}
+# define a variable called var_one that contains "1" (with quotes)
+var_one <- "1"
+var_one
+```
+
+What is the class of `var_one`?
+
+
+```{r}
+# identify the class of var_one
+one_class <- class(var_one)
+one_class
+```
+
+
+```{r}
+# Identify the class of the *output* of the class() function?
+class(class(1))
+```
+
+
+
+Let's try to do some math with our character variable
+
+```{r}
+#| error: true
+# add char + 1
+char <- "hello"
+char + 1
+```
+
+
+
+### Logical objects
+
+
+The two boolean/logical values are `TRUE` and `FALSE`
+
+```{r}
+# print out TRUE 
+TRUE
+# print out FALSE
+FALSE
+```
+
+```{r}
+# identify the class of TRUE
+class(TRUE)
+# identify the class of FALSE
+class(FALSE)
+```
+
+
+
+Define a logical variable
+
+```{r}
+# define a logical_var containing TRUE
+logical_var <- TRUE
+logical_var
+```
+
+```{r}
+# identify the class of logical_var
+class(logical_var)
+```
+
+Can we do mathematical operations with logical values?
+
+```{r}
+# Try to subtract 3 from logical_var
+logical_var - 3
+# Try to multiple FALSE by 4
+FALSE * 4
+```
+
+
+
+
+
+
+
+### Exercise
+
+Which of the following computations will work?
+
+```{r}
+#| eval: false
+"TRUE" * 4
+"banana" + "apple"
+FALSE + 5
+TRUE + "TRUE"
+```
+
+
+
+
+
+
+
+
+
+## Type conversions
+
+
+Let's define a variable of each of the three main types.
+
+```{r}
+# define a numeric variable, numeric_var, containing 12.5
+numeric_var <- 12.5
+# define a character variable, character_var, containing some text
+character_var <- "some text"
+# define a logical variable, logical_var, containing FALSE
+logical_var <- FALSE
+```
+
+Let's check the class of each variable 
+
+```{r}
+# check the class of each of the variables defined above
+class(numeric_var)
+class(character_var)
+class(logical_var)
+```
+
+
+
+
+
+
+### Converting numeric values to other types
+
+
+Let's try to convert the numeric object to a character and logical type
+
+
+```{r}
+# use the as.character() function to convert numeric_var to a character type
+as.character(numeric_var)
+```
+
+Has this modified `numeric_var`?
+
+```{r}
+numeric_var
+```
+
+
+```{r}
+# use the as.logical() function to convert numeric_var to a logical type
+as.logical(numeric_var)
+```
+
+
+```{r}
+# convert -2 to a logical
+as.logical(-2)
+# convert 0.33 to a logical
+as.logical(0.33)
+# convert 0 to a logical
+as.logical(0)
+```
+
+
+Numbers can be converted to logical type using `as.logical()`, but all numbers will be converted to `TRUE`, except for 0, which is converted to `FALSE`.
+
+
+
+
+
+
+
+
+
+
+
+
+### Converting character values to other types
+
+Let's now try to convert the character object to numeric and logical types
+
+
+```{r}
+# use the as.numeric() function to convert character_var to a numeric type
+as.numeric(character_var)
+```
+
+```{r}
+# use the as.logical() function to convert character_var to a logical type
+as.logical(character_var)
+```
+
+
+**Converting character values to other types typically results in a "missing value" `NA`**
+
+
+```{r}
+# try to do some math with NA
+NA + 1
+```
+
+
+
+
+What about when the character is a quoted number?
+
+```{r}
+# try to use as.numeric() to convert "2.3" to a numeric type
+as.numeric("2.3")
+# try to use as.numeric() to convert "2.3 apples" to a numeric type
+as.numeric("2.3 apples")
+```
+
+
+
+
+
+
+
+
+### Converting logical values to other types
+
+Let's see what happens when we convert logical type objects to numeric and character types
+
+
+```{r}
+# use the as.numeric() function to convert logical_var to a numeric type
+as.numeric(logical_var)
+```
+
+```{r}
+# use as.character() function to convert logical_var to a character type
+as.character(logical_var)
+```
+
+
+
+
+### Exercise
+
+What will the output of the following code chunks be?
+
+```{r}
+as.numeric("TRUE") + 3
+```
+
+```{r}
+as.character(TRUE + 12)
+```
+
+```{r}
+as.logical(as.numeric("35"))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+## Logical operations
+
+
+
+```{r}
+x <- 2
+y <- 4
+```
+
+Let's ask some questions about x and y
+
+```{r}
+# is x equal to 2?
+x == 2
+```
+
+```{r}
+# ask is x less than or equal to 1
+x <= 1
+```
+
+```{r}
+# Is x equal to y?
+x == y
+```
+
+```{r}
+# Is x *not* equal to y?
+x != y
+!(x == y)
+```
+
+```{r}
+# is x strictly greater than y?
+x > y
+```
+
+```{r}
+# is x greater than or equal to y
+x >= y
+```
+
+```{r}
+# is x strictly less than y
+x < y
+```
+
+
+
+
+
+
+
+What about character variables?
+
+```{r}
+x <- "apple"
+y <- "banana"
+```
+
+```{r}
+# is x > y
+x > y
+```
+
+```{r}
+# is x < y
+x < y
+```
+
+```{r}
+# is x equal to apple
+x == "apple"
+```
+
+```{r}
+# negate the question
+x != "apple"
+!(x == "apple")
+```
+
+
+

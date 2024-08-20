@@ -1,0 +1,537 @@
+---
+title: "Vectors"
+author: "Rebecca Barter"
+format: html
+embed-resources: true
+editor_options: 
+  chunk_output_type: console
+---
+
+
+## Introduction to vectors
+
+Previously, we were just defining simple objects such as 
+
+```{r}
+# define a variable x, containing 12
+
+```
+
+
+Let's create a vector that contains the ages of 5 people:
+
+
+```{r}
+# Use c() to define a variable age that contains the ages of 5 people at once
+
+```
+
+Let's ask what `age`'s type is:
+
+```{r}
+# identify the class of age
+
+```
+
+
+Let's try and create a multi-vector consisting of multiple different types
+
+```{r}
+# try to create a vector, multi_vec, with numeric and character values
+
+```
+
+
+Let's check the class of `multi_vec`
+
+```{r}
+# check the class of multi_vec
+
+```
+
+This is an example of "type conversion".
+
+
+
+
+
+
+Let's try to combine numeric and logical values in a vector
+
+```{r}
+# try to create a vector with numeric and logical values
+
+```
+
+In type conversion, there is a hierarchy of types: **character > numeric > logical**.
+
+
+
+
+### Exercise
+
+What will be the output and type of the following code?
+
+```{r}
+vector_example <- c(TRUE, 4, "hello", FALSE, 0)
+vector_example
+# check the class
+class(vector_example)
+```
+
+
+
+
+
+
+
+
+## Working with vectors
+
+```{r}
+age <- c(12, 18, 22, 21, 17)
+```
+
+The following is an example of a "vectorized" operation:
+
+```{r}
+# subtract 1 from age
+
+```
+
+```{r}
+# define a new vector, age2, corresponding to age * 2
+
+```
+
+
+We can do computations with the two vectors together:
+
+```{r}
+# subtract age from age2
+
+```
+
+
+
+What happens when you try to do a computation with vectors of different lengths?
+
+```{r}
+# try to subtract the vector c(1, 2) from age
+
+```
+
+
+
+
+
+
+When you do mathematical computations on vectors of different lengths, the computation uses **recycling**
+
+The above subtraction is equivalent to
+
+```{r}
+age - c(1, 2, 1, 2, 1)
+```
+
+
+
+
+
+### Vectorized logical operations
+
+
+Let's ask which `age` entries are greater or equal to 18
+
+```{r}
+# ask which entries in age are greater than or equal to 18
+
+```
+
+
+Let's ask which entries are equal to 35
+
+```{r}
+# ask which entries in age are equal to 17
+
+```
+
+Let's ask which entries are equal to 17 or 18
+
+```{r}
+# try to use == c(17, 18) to ask which entries are equal to 17 or 18
+
+```
+
+*This is only working because we got lucky with our recycling.*
+
+This breaks if we switch the order of 18 and 17.
+
+```{r}
+# switch the order of 17 and 18
+
+```
+
+We can instead use the `%in%` operator:
+
+```{r}
+# use %in% to ask which entries in age are equal to 17 or 18
+
+```
+
+
+
+
+
+
+
+
+
+
+## Functions for vectors
+
+The `sum()` function can be used to add up all of the entries of a vector
+
+```{r}
+# compute the sum of all entries in age
+
+```
+
+The `mean()` function computes the mean:
+
+```{r}
+# compute the mean of all entries in age
+
+```
+
+Note if your vector contains missing values, your mean will be `NA`, so you will need to provide the `na.rm = TRUE` argument to ignore missing values.
+
+```{r}
+# compute the mean of a vector with missing values
+
+```
+
+
+The function `length()` tells us how many entries the vector contains
+
+```{r}
+# compute the length of the age vector
+
+```
+
+
+We can use the `sum()` function to tally up the output of logical operations
+
+```{r}
+# compute the sum of the logical vector c(TRUE, FALSE, FALSE, TRUE)
+
+```
+
+
+```{r}
+# add up the number of age entries that are 17 or 18
+
+```
+
+
+```{r}
+# add up the number of age entries that are over 18
+
+```
+
+
+
+
+
+
+### Exercise
+
+What is the *proportion* of entries in the `age` vector that are greater than 18?
+
+
+```{r}
+
+```
+
+
+
+
+
+
+
+
+
+## Indexing and subsetting vectors
+
+We use the square bracket indexing syntax to extract entries from a vector
+
+```{r}
+# extract the first entry from age
+
+```
+
+```{r}
+# extract the fourth entry from age
+
+```
+
+To extract the last entry in a vector:
+
+```{r}
+# extract the final entry from age
+
+```
+
+
+
+
+
+
+To remove an entry from a vector, you can use the `-` syntax.
+
+```{r}
+# remove the first entry from age
+
+```
+
+Has age changed?
+
+```{r}
+# print age
+
+```
+
+```{r}
+# remove the fourth entry from age
+
+```
+
+
+
+
+
+
+
+### Extracting/removing multiple entries from a vector
+
+Extract the first and third entries from `age`
+
+```{r}
+# extract entries 1 and 3 from age
+
+```
+
+Remove the first and third entries
+
+```{r}
+# remove entries 1 and 3 from age
+
+```
+
+
+
+
+
+
+
+## Definining integer sequences
+
+If we want to quickly define a sequence of integers, we can use the `:` syntax
+
+```{r}
+# use c() to create a vector 1, 2, 3, 4
+
+# use the : syntax to create a vector 1, 2, 3, 4
+
+# use the : syntax to create a vector of integers from 5 to 25
+
+```
+
+We can use these sequences to extract entries from vectors 
+
+```{r}
+# Use : to extract the first 4 entries from age
+
+```
+
+What if I want to remove sequences of entries?
+
+```{r}
+# Use : to remove the first 4 entries from age
+
+```
+
+
+
+
+
+
+### The seq() function
+
+The `seq()` function allows us to create a sequence of integers with non-unit increments
+
+```{r}
+# use seq() to create a sequence from 4 to 20 that increments by 2
+# include argument names
+
+# exclude the argument names
+
+```
+
+```{r}
+# use seq() to extract every second entry from age
+
+```
+
+
+
+
+
+
+## Exercise
+
+
+1. Create a vector that contains the values 5, 9, 2, 21, 34, 56, 2, -1, 5, 9
+
+2. Extract the 4th and 9th entries
+
+3. Extract the 1st and last entry
+
+4. Extract every 3rd entry starting from the 2nd entry
+
+```{r}
+
+```
+
+
+
+
+
+
+
+
+
+## Named vectors
+
+You can provide names to the entries of a vector
+
+```{r}
+# Add the names "Dean", "Xiao", "Sara", "Ravi", "Maya" to the age vector
+
+```
+
+
+You can extract/index entries from a vector using their names:
+
+```{r}
+# extract Ravi's age using named indexing
+
+```
+
+
+```{r}
+# extract Maya and Ravi's ages using named indexing
+
+```
+
+
+
+
+
+
+
+
+
+
+## Logical subsetting
+
+We can use logical vectors to subset a vector
+
+
+```{r}
+# use a logical vector of TRUE/FALSEs to extract the first, fourth, and fifth entries from age
+
+```
+
+
+
+
+
+To identify which entries in a vector satisfy a criteria, I can ask a logical question. 
+
+```{r}
+# reminder: identify which entries in age are at least 18
+
+```
+
+and we can use logical expressions to subset a vector too
+
+```{r}
+# use age >= 18 to extract all ages that are at least 18
+
+```
+
+
+
+
+
+
+
+### Subsetting with multiple conditions
+
+How can we combine multiple conditions when subsetting, e.g., >= 17 and < 20
+
+
+```{r}
+# Identify which entries in age are both >= 16 and less than < 20
+
+```
+
+The "AND" operator is "&"
+
+```{r}
+# What will be the output of the following & operations:
+TRUE & TRUE
+TRUE & FALSE
+```
+
+The "OR" operator is "|" 
+
+```{r}
+# What will be the output of the following | operations:
+TRUE | TRUE
+TRUE | FALSE
+```
+
+
+```{r}
+# what do you think will happen when we ask if age <= 16 OR age > 20
+
+```
+
+```{r}
+# extract all of the ages that are either <= 16 or > 20
+
+```
+
+
+
+## Exercise
+
+```{r}
+vec <- c(4, 19, 2, 2, 3, 90, 55, 12)
+```
+
+Write some code for extracting the entries that are 
+
+(a) less than 10
+
+(b) less than 25 but greater than 10
+
+(c) either less than 10 or equal to 55
+
+
+```{r}
+
+```
+
