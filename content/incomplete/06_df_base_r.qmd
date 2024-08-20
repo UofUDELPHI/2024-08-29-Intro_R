@@ -1,0 +1,204 @@
+---
+title: "Data frames with base R"
+format: html
+embed-resources: true
+editor_options: 
+  chunk_output_type: console
+---
+
+
+
+## Working with data frames using "Base R"
+
+
+
+
+Let's load the gapminder dataset
+
+```{r}
+# load the gapminder dataset using read.csv()
+
+```
+
+
+To extract individual entries from a data frame using base R
+
+```{r}
+# extract the entry in the 3rd row and 4th column
+
+# extract the entries in the 3rd and 4th rows and 4th column
+
+# extract the entry in the 3rd and 4th rows and 4th and 5th columns
+
+```
+
+What type of object are these?
+
+
+
+
+
+
+
+
+
+### Extracting entire columns from a data frame
+
+There are many ways to extract a single *column* from a data frame:
+
+```{r}
+# Extract the 4th column using df[, col]
+
+# extract the lifeExp column (using df[, "col"] syntax)
+
+# extract the lifeExp column (using df$col syntax)
+
+```
+
+What type of object are these?
+
+
+
+
+What do you think the output of the following code will be
+
+```{r}
+# head(gapminder[3])
+
+# head(gapminder["year"])
+
+```
+
+
+
+
+
+A data frame can be thought of as a collection (technically a "list") of vectors, so the third entry, is the third vector.
+
+Notice the difference in the output between these two ways of extracting the third column:
+
+```{r}
+# head(gapminder[, 3])
+
+# head(gapminder[3])
+```
+
+
+
+To extract the third vector/column directly, you can use double square parentheses `[[]]`. This is actually *list* notation.
+
+```{r}
+# extract the third column with `[[]]` using numbered indexing 
+
+# extract the third column with `[[]]` using named indexing ("year")
+
+```
+
+
+
+
+
+
+
+
+## Exercise
+
+
+1. Extract the `gdpPercap` entry for the fourth and fifth rows
+
+```{r}
+
+```
+
+
+2. Extract the entire `lifeExp` column in as many different ways as you can (you may want to just look at the head() of your outputs).
+
+
+```{r}
+
+```
+
+
+
+
+
+
+
+
+## Using logical indexing
+
+Let's create a logical vector, called `is_aus` that is `TRUE` when country is "Australia" and `FALSE` otherwise.
+
+
+```{r}
+# create vector is_aus
+
+# test that is_aus contains at least some TRUE values
+
+```
+
+Use `is_aus` to filter to just the rows for Australia.
+
+```{r}
+# use is_aus to filter to just the rows for Australia
+
+```
+
+
+
+
+
+
+
+
+## Removing columns using negative indexing
+
+You can use negative indexing to remove columns
+
+```{r}
+# remove the third column from gapminder (don't overwrite gapminder)
+```
+
+```{r}
+# if you wanted to update the gapminder dataset:
+# gapminder <- gapminder[-3]
+```
+
+
+
+
+
+
+## Adding columns
+
+You can also use the above syntaxes to *add* new columns
+
+```{r}
+# create a copy of gapminder called gapminder_tmp
+
+# add a new column to gapminder_tmp called gap, which is the product of pop and gdpPercap
+
+# look at the head of gapminder
+
+```
+
+
+
+
+
+
+
+
+## Exercise
+
+Modify the `lifeExp` column of `gapminder_tmp` so that it is rounded to the nearest integer (use `round()`). 
+
+*Challenge:* do this JUST for the Australia rows. Check your output for the just the country and lifeExp columns for the first 100 rows
+
+*Hint:* to undo any changes to `gapminder_tmp`, reassign it to the original gapminder object: `gapminder_tmp <- gapminder`
+
+```{r}
+
+```
+
+

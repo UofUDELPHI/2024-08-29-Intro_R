@@ -1,0 +1,163 @@
+---
+title: "Introduction to R objects"
+author: "Rebecca Barter"
+format: html
+editor_options: 
+  chunk_output_type: console
+embed-resources: true
+---
+
+In this document, we will learn how to define "objects" in R.
+
+
+## Defining objects
+
+
+Let's assign the value 1 to an object called `x`
+
+```{r}
+# assign the value 1 to the variable x
+x <- 1 
+```
+
+
+We can view the value of `x` by writing it's name in a code chunk:
+
+
+```{r}
+# view x
+x
+```
+
+Another way to assign a value to a variable is using "="
+
+```{r}
+# assign the value of 3 to the variable y using =
+y = 3
+```
+
+
+```{r}
+# view y
+y 
+```
+
+
+You can also assign the output of mathematical calculations to a variable
+
+```{r}
+# assign the output of 1 + 1 to the variable z
+z <- 1 + 1
+# view z
+z
+```
+
+
+
+
+
+
+### Exercise
+
+As an exercise, your task is to define a new object `w` that contains the output of the product of 5 and 2. 
+
+1. Create a new code chunk
+
+2. Define the variable `w`, assign to it the output of the product of 5 and 2 
+
+2. View the output of the object in the console.
+
+
+
+### Solution to exercise
+
+```{r}
+w <- 5 * 2
+w
+```
+
+
+
+
+
+
+
+
+
+
+## Working with variables
+
+
+Let's do some computations with our variables
+
+
+```{r}
+# Define result to be the product of z and 7
+result <- z * 7
+result
+```
+
+```{r}
+# update the value of z to be 4^2
+z <- 4^2
+```
+
+
+**Question**: Do you think `result` will have changed?
+
+Look at the values of `result` and `z`:
+
+```{r}
+result
+```
+
+```{r}
+z
+```
+
+
+
+
+
+
+
+
+
+
+### Exercise
+
+What will the output of the following code chunk be:
+
+
+```{r}
+value <- 1
+computed_result <- value * 10 + 3^2
+value <- value + 2
+computed_result * 2 
+```
+
+
+
+
+
+
+## Variable names
+
+
+Which of the following are valid R variable names?
+
+```{r}
+#| eval: false
+min_height
+max.height
+_age
+.mass
+MaxLength
+min-length
+2widths
+celsius2kelvin
+```
+
+
+
+The generally recommended variable name convention is: `variable_name`

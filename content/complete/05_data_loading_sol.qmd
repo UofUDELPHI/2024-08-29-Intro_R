@@ -1,0 +1,230 @@
+---
+title: "Loading data"
+author: "Rebecca Barter"
+format: html
+embed-resources: true
+editor_options: 
+  chunk_output_type: console
+---
+
+
+## Creating a data set
+
+Let's create a dataset with three variables
+
+If we only had a little bit of data, we could define a vector for each variable in our data
+
+```{r}
+# create three vectors containing: age, state, and diabetes status
+age_vec <- c(29, 35, 36, 21, 42, 39, 52, 35, 30, 44)
+state_vec <- c("CA", "FL", "PA", "NY", "UT", "UT", "MT", "CO", "NV", "WY")
+diabetes_vec <- c(TRUE, FALSE, FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, FALSE, FALSE)
+```
+
+And we could place these three vectors into a single object called a "data frame"
+
+```{r}
+# create a data frame called patient_data with data.frame
+# with three columns: age, state, and diabetes
+patient_data <- data.frame(age = age_vec,
+                           state = state_vec,
+                           diabetes = diabetes_vec)
+```
+
+```{r}
+# print out the data frame
+patient_data
+```
+
+You can look at a summary by 
+
+```{r}
+# use str() to look at the data frame
+str(patient_data)
+```
+
+```{r}
+# what is the "class" of the data frame?
+class(patient_data)
+```
+
+Each column in a data frame can have a different type, but **each entry within a single column must be a single type (because each column corresponds to a vector)**.
+
+
+
+
+
+
+
+
+## CSV data files
+
+CSV files are one of the *simplest* data formats.
+
+CSV stands for "comma separated value". In a CSV file:
+
+- Every entry in a row is separated by a comma
+
+- New rows are created by starting a new line
+
+Take a look at the `data/gapminder.csv` file.
+
+
+
+## Loading CSV files
+
+To load in a dataset (as a data frame) from a csv file, we can use the `read.csv()` function
+
+```{r}
+# load the data/gapminder.csv file
+# read.csv(file = "data/gapminder.csv")
+```
+
+```{r}
+# save it as gapminder
+gapminder <- read.csv(file = "data/gapminder.csv")
+```
+
+
+
+### The working directory
+
+If R cannot find your file, you may be in the wrong *working directory* (the location in your computer where file-paths will start from). 
+
+If you opened an *R project*, then your working directory will be the location of the project folder.
+ 
+To change the working directory, use the "Session > Set Working Directory" menu.
+
+
+
+Let's take a look at the gapminder data object
+
+```{r}
+# print the gapminder object
+# gapminder
+```
+
+Note that it prints out A LOT of data! Try to avoid printing entire datasets in your quarto document. **Render your document to see why**.
+
+
+
+
+
+
+### Summarizing a data frame
+
+Instead of looking at the entire data frame, it is often easier to look at just the first few rows using the `head()` function:
+
+```{r}
+# use the head() function to look at gapminder
+head(gapminder)
+```
+
+```{r}
+# look at the first 20 rows
+head(gapminder, n = 20)
+```
+
+
+We can print out the column names:
+
+```{r}
+# use colnames() to print out the column names
+colnames(gapminder)
+```
+
+
+We can ask how many rows and columns my data frame has:
+
+```{r}
+# compute the number of rows (nrow)
+nrow(gapminder)
+# compute the number of columns (ncol)
+ncol(gapminder)
+# look at the dimension of gapminder (dim)
+dim(gapminder)
+```
+
+Look at a summary
+
+```{r}
+# use str() to look at a summary of gapminder
+str(gapminder)
+```
+
+```{r}
+# use summary() to look at a summary of gapminder
+summary(gapminder)
+```
+
+
+
+
+
+
+
+
+## Loading Excel data files into R
+
+To load excel files, we need to **install the readxl R package**
+
+R packages provide you with additional R functions.
+
+You only ever need to *install* an R package ONCE. This is like installing an application on your computer.
+
+```{r}
+# run in the console: install.packages("readxl")
+```
+
+But every time you want to use an R package in a new R session, you need to *load* the library using the library() function
+
+```{r}
+# load the readxl R package
+library(readxl)
+```
+
+
+
+
+
+
+Let's load the gapminder excel dataset using a function from readxl. 
+
+```{r}
+# use read_excel() from readxl to load the data/gapminder.xls file
+gapminder_excel <- read_excel("data/gapminder.xls")
+```
+
+Note this will only load the first sheet. You can use the `sheet` argument to load other sheets.
+
+```{r}
+# use the "sheet" argument to load in just the second sheet containing Australia's data
+gapminder_excel_australia <- read_excel("data/gapminder.xls", sheet = 2)
+```
+
+
+
+
+## Exercise
+
+Load the world happiness dataset from the `whr_2023.csv` file. Save it as a variable called `world_happiness`. Then print out the first 10 rows, the column names, create a summary of the data, report its dimension, 
+
+```{r}
+world_happiness <- read.csv("data/whr_2023.csv")
+```
+
+```{r}
+# look at first 10 rows
+head(world_happiness, 10)
+# column names
+colnames(world_happiness)
+# two possible summaries
+str(world_happiness)
+summary(world_happiness)
+# the dimension
+dim(world_happiness)
+```
+
+
+
+

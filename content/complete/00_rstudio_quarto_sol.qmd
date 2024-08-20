@@ -1,0 +1,200 @@
+---
+title: "An introduction to RStudio"
+author: "Rebecca Barter"
+embed-resources: true
+format: 
+  html:
+     toc: true
+     toc-location: left
+     toc-depth: 5
+     number-sections: true
+     number-depth: 5
+---
+
+Before we start learning how to use the R programming language itself, this lesson will introduce the RStudio graphical user interface (GUI) and the Quarto document file-type in which we will combine text and our R code.
+
+## Downloading R and RStudio
+
+R is the programming language that we will use throughout these base modules. We will use R to tell our computer how to interact with our data. R is an "\*open source\*" programming language, which means that it is free to use and anyone can be an R developer. If you will be working "locally" (i.e., on your own computer, rather than in the cloud), then you will need to download R from CRAN (<https://cran.r-project.org/>).
+
+Although R has its own graphical user interface console, most R users use R through RStudio, which is a desktop application created by the company *Posit* (formerly known as *RStudio*) that you can download onto your computer (from <https://posit.co/downloads/>).
+
+Even if you already have R and RStudio on your computer, I recommend that you re-download them to ensure that you have the latest version and that what you see will be as similar to what is shown in this module as possible.
+
+Alternatively, if you prefer not to (or cannot) download applications from the web onto your computer, you can use R and RStudio in your web browser with Posit cloud (see <https://posit.cloud/plans>).
+
+::: callout-tip
+**To-do**
+
+Go ahead and download R and RStudio now (or sign up for a Posit cloud account).
+:::
+
+## A tour of RStudio
+
+Since we will be using R through RStudio, let's start with a quick tour of RStudio.
+
+Whether you're using RStudio "locally" on your own computer, or in the cloud, when you open RStudio, it should look something like this:
+
+```{r}
+#| echo: false
+knitr::include_graphics("figures/rstudio.png")
+```
+
+If you've used RStudio before, you might have re-arranged the four panels that you see in the image above, but your version should have the same general features as in the image above:
+
+-   A **document panel** (the top-left panel in the image), which is where the document that you're currently *writing* in lives.
+
+-   A **console panel** (The bottom-left panel in the image), which is where we can *run* the code that we write.
+
+-   An **environment panel** (the top-right panel in the image), which will show the "objects" that exist in your R environment. We haven't run any code yet, so this is empty.
+
+-   The **files panel** (which is also the **plot panel** and **viewer panel**), which shows the files in the current local "directory" (the folder on your computer).
+
+Note that the size of each panel can be changed by dragging the border between two adjacent panels. I often re-arrange my panels so that my console is in the top-left, but for now I'll keep my panels arranged as they are.
+
+The two most important panels at the moment are the *documents* and *console* panels, so let's take a dive into these.
+
+## The documents panel: quarto documents
+
+The documents panel contains the document that you're currently working in. There are several types of documents that you could use that would include R code, but for this (and most other R-based) modules, we will be using on *quarto documents* (quarto is the modern successor to *R Markdown*).
+
+
+*Quarto documents* (like their predecessor, R Markdown documents) allow you to combine text and code, so that rather than having your code standing alone in its own file, your code and its output can instead lie nestled in between narrative text that describes the analysis that you're conducting and summarizes the results. Quarto documents are mind-blowingly versatile, and while they are mostly used to create simple html or pdf documents, they can also be used to make websites, blog posts, and books!
+
+Since we want to practice *reproducible* data science, it is important that we keep detailed records of the code that we wrote which led us to our data-driven answers. Quarto provides us with an easy way of doing that, plus since you can surround your code with text narrative, it can be used to communicate your analysis and results to other people: Quarto lets us feed two birds with one seed!
+
+To start a new quarto document:
+
+-   Hit the "New file" icon in the top-right-hand corner of the RStudio application and select "Quarto document". The following window should pop up:
+
+```{r}
+#| echo: false
+knitr::include_graphics("figures/new_quarto.png")
+```
+
+- Choose a title (e.g., "My analysis"), and make yourself the author.
+
+- Select the HTML option.
+
+- Select the "knitr" engine from the drop-down menu.
+
+- Un-check "Use visual markdown editor" (if it is pre-checked).
+
+- Hit the "*Create*" button to create your file.
+
+This will open up a new quarto template document in the documents panel.
+
+::: callout-tip
+**To-do**
+
+Create a new quarto document titled "My analysis" and save your file as "analysis.qmd" in a relevant location on your computer (or cloud-based space).
+:::
+
+
+### Rendering quarto documents
+
+The analysis.qmd document that you've just created contains a very brief summary of how quarto documents work. Take a moment to read through the analysis.qmd document. Note the instructions "*When you click the **Render** button a document will be generated that includes both content and the output of embedded code*." Go ahead and click the "Render" button with a blue arrow, which is circled in orange below:
+
+```{r}
+#| echo: false
+knitr::include_graphics("figures/render.png")
+```
+
+::: callout-tip
+**To-do**
+
+Hit the "Render" button while in your "analysis.qmd" document.
+:::
+
+Hopefully, what happened when you hit "Render" is that some code appeared very quickly in your console panel and your web browser opened up with a new (html) webpage titled "*My analysis*" that looks like this:
+
+```{r}
+#| echo: false
+knitr::include_graphics("figures/render_doc.png")
+```
+
+If you're using RStudio in the cloud (or you have different settings to me), you may have instead found that the window opened in the "Viewer" panel of your RStudio application. If no window opened anywhere, find the `analysis.html` file on your computer that was created when you hit "Render", and open it in your web browser.
+
+Hitting the "Render" button "renders" your *interactive* quarto (.qmd) document as a *static* html (.html) file. This is like saving your interactive word document file as a static pdf file. Compare the original quarto (`.qmd`) document with the rendered web-browser page (`.html`). If you're viewing the `.qmd` file in visual mode, they should look fairly similar.
+
+### Compiling pdf documents
+
+While the default is to output to a .html file, quarto files can also be rendered to a .pdf file.
+
+To do this, you will need to have LaTeX installed on your computer (see the exercise below). Then by changing `format: html` in the "**yaml**" (the settings) at the top of your quarto file to `format: pdf`, you will now render a pdf file.
+
+```{r}
+#| echo: false
+knitr::include_graphics("figures/yaml.png")
+```
+
+::: callout-tip
+**To-do: compile a pdf document**
+
+To compile pdf files using quarto, you need to have some implementation of LaTeX installed. You can install a lite version of LaTeX by running the following code in the *terminal panel* in RStudio (this is likely beneath your quarto document, where the console usually lies):
+
+`quarto install tinytex`
+
+```{r}
+#| echo: false
+knitr::include_graphics("figures/tinytex.png")
+```
+
+Next, in the "yaml" section at the top of your "analysis.qmd" document, change `format: html` to `format: pdf` and hit the "Render" button. Now you should see that an "analysis.pdf" file has been created in your "local" directory (i.e., in the same folder where "analysis.qmd" lives on your computer).
+:::
+
+Note that it's also possible to render to many other formats, such as word documents, but we won't go into that in this lesson.
+
+If you switched to `format: pdf`, we recommend switching back to `format: html` for the rest of this lesson.
+
+
+
+
+
+
+
+
+
+
+### "Visual" mode versus "Source" mode
+
+Note that we recommended un-checking the "Use visual markdown editor" box when creating your document.
+
+There are currently two modes that you can use to work with your quarto document. When you view your quarto document in "visual" mode, you will be working with something that looks kind of like a word doc or a google doc. The underlying markdown syntax will be hidden from you in visual mode. The "analysis.qmd" file in visual mode looks like this:
+
+```{r}
+#| echo: false
+knitr::include_graphics("figures/visual.png")
+```
+
+Alternatively, if you view this same "analysis.qmd" Quarto document in "Source" mode, you will be looking at the underlying raw R Markdown syntax. The "analysis.qmd" file in source mode looks like this:
+
+```{r}
+#| echo: false
+knitr::include_graphics("figures/source.png")
+```
+
+Whether you prefer source or visual mode will come down to a personal preference. 
+
+However, at this point, the visual mode is still under development (it has some rather annoying bugs), and so we will be using *source* mode in this (and future) modules. This means that ou will need to learn the basics of markdown syntax.
+
+
+
+#### Markdown text
+
+Based on the html output, let's try to make some sense of the syntax used in the original quarto (.qmd) document. The text in a quarto document uses *markdown* syntax.
+
+Can you figure out what the `##` syntax does (if you can't see the `##` syntax, ensure that you are viewing the quarto document using "Source" rather than "Visual" in the top-right corner of the document)? The pound symbols are **markdown** syntax for creating headers: `#` will create a top-level header, `##` will create a level-2 header, `###` will create a level-3 header, etc.
+
+Notice that the word "**Render**" is shown in bold in the rendered html file. By looking at the .qmd file, can you figure out what the markdown syntax is for creating bold-face text?
+
+To learn more about markdown syntax, see [https://www.markdownguide.org/basic-syntax/](https://www.markdownguide.org/basic-syntax/).
+
+::: {.callout-tip}
+## To-do
+
+Add some additional markdown features to your `analysis.qmd` file (E.g., a sub-section heading, some italics, or extra bold text), and re-render your quarto html output by hitting the "Render" button. Take note of how the changes you made were rendered.
+:::
+
+
+
