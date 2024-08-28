@@ -3111,19 +3111,13 @@ vertical-align: -.125em;
 <section id="using-r-as-a-calculator-in-the-console" class="level2">
 <h2 class="anchored" data-anchor-id="using-r-as-a-calculator-in-the-console">Using R as a calculator in the console</h2>
 <p>We can write R code directly in the console.</p>
-<div class="callout callout-style-simple callout-none no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Exercise
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<section id="exercise" class="level3">
+<h3 class="anchored" data-anchor-id="exercise">Exercise</h3>
 <p>Use R as a calculator to compute <code>1 + 1</code> in the console</p>
-</div>
-</div>
+</section>
+</section>
+<section id="mathematical-operations" class="level2">
+<h2 class="anchored" data-anchor-id="mathematical-operations">Mathematical operations</h2>
 <p>You can do mathematical calculations in R using the following symbols:</p>
 <ul>
 <li>Parentheses: <code>(</code>, <code>)</code></li>
@@ -3133,45 +3127,14 @@ Exercise
 <li>Add: <code>+</code></li>
 <li>Subtract: <code>-</code></li>
 </ul>
-<div class="callout callout-style-simple callout-none no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Exercise
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Compute 3 squared in the console</p>
-</div>
-</div>
-<div class="callout callout-style-simple callout-none no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Exercise
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Compute 2 divided by 100,000 in the console</p>
-</div>
-</div>
-<div class="callout callout-style-simple callout-none no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Exercise
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Use the logarithm function <code>log()</code> to compute the logarithm of 10 in the console</p>
-</div>
-</div>
+<section id="exercise-1" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1">Exercise</h3>
+<ul>
+<li><p>Compute 3 squared in the console</p></li>
+<li><p>Compute 2 divided by 100,000 in the console</p></li>
+<li><p>Use the logarithm function <code>log()</code> to compute the logarithm of 10 in the console</p></li>
+</ul>
+</section>
 </section>
 <section id="writing-r-code-in-a-quarto-document" class="level2">
 <h2 class="anchored" data-anchor-id="writing-r-code-in-a-quarto-document">Writing R code in a quarto document</h2>
@@ -3189,63 +3152,24 @@ Exercise
 </div>
 <p>You can view the “output” (result) of your code by either (a) <em>rendering</em> your quarto document, or (b) running your code in the <em>console</em>.</p>
 <p><em>Question:</em> Why is there a <code>[1]</code> before the output (<code>[1] 2</code>)? This is just specifying that <code>2</code> is the first “entry” of the output.</p>
-<div class="callout callout-style-simple callout-none no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Exercise
-</div>
-</div>
-<div class="callout-body-container callout-body">
+</section>
+<section id="exercise-2" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2">Exercise</h3>
 <p>Create a new code chunk and compute 4 times 5</p>
-</div>
-</div>
-<p>Solution:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">*</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 20</code></pre>
-</div>
-</div>
-<div class="callout callout-style-simple callout-none no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Exercise
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Inside your code chunk above, add some code to compute 3 squared (<code>3^2</code>). What do you think will happen when you render your document? Will both lines of code be computed, or just the final one?</p>
-</div>
-</div>
-<p>Solution:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">*</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 20</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 9</code></pre>
-</div>
-</div>
+<p>Inside your code chunk, on a new line, add some code to compute 3 squared (<code>3^2</code>). What do you think will happen when you render your document? Will both lines of code be computed, or just the final one?</p>
 </section>
 </section>
 <section id="code-comments" class="level2">
 <h2 class="anchored" data-anchor-id="code-comments">Code comments</h2>
 <p>R will ignore any text that follows a <code>#</code> symbol, so we can add “comments” to our code using <code>#</code> to make it easier to understand.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute 4 times 5</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">*</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute 4 times 5</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">*</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 20</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute 3 squared</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute 3 squared</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 9</code></pre>
 </div>
@@ -3262,25 +3186,17 @@ Exercise
 </div>
 <p>This <code>#|</code> syntax at the beginning of a code chunk corresponds to various options for when the code chunk is “rendered” into html (or pdf).</p>
 <p><code>#| echo: false</code> hides the code from the html output file, while still showing the output (<code>[1] 4</code>).</p>
-<div class="callout callout-style-simple callout-none no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Exercise
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<section id="exercise-3" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-3">Exercise</h3>
 <p>Can you figure out what the output of the following code chunk will look like (will the code and code comment be shown in the output)?</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| echo: true</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="in"># two times three</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="in">2 * 3</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># two times three</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6</code></pre>
 </div>
 </div>
+</section>
 </section>
 
 </main>

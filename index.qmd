@@ -37,9 +37,13 @@ Note that the schedule below serves as a guideline. The start, end, and break ti
 **Note that morning snacks and lunch will be provided on both days**.
 
 
+### Posit Cloud
+
+[Click here to join the Posit Cloud workspace](https://posit.cloud/spaces/542903/join?access_code=Sh6xjRwbFqtj5F4QHHypw65NExczFv8kTgIJpIjH)
+
 ### Download files and data
 
-[Click here](content.zip "download") to download all of the complete and incomplete .qmd files and data files we will be using throughout the workshop.
+If you are working in RStudio locally (rather than using posit cloud, above) [click here](content.zip "download") to download all of the complete and incomplete .qmd files and data files we will be using throughout the workshop.
 
 
 ### Day 1

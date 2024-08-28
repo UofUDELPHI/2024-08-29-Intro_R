@@ -10,17 +10,18 @@ embed-resources: true
 
 We can write R code directly in the console. 
 
-::: {.callout}
-## Exercise
+
+### Exercise 
 
 Use R as a calculator to compute `1 + 1` in the console
-:::
 
 
 
 
 
 
+
+## Mathematical operations
 
 You can do mathematical calculations in R using the following symbols:
 
@@ -33,27 +34,14 @@ You can do mathematical calculations in R using the following symbols:
 
 
 
-::: {.callout}
-## Exercise
 
-Compute 3 squared in the console
-:::
+### Exercise
 
+- Compute 3 squared in the console
 
-::: {.callout}
-## Exercise
+- Compute 2 divided by 100,000 in the console
 
-Compute 2 divided by 100,000 in the console
-:::
-
-
-
-::: {.callout}
-## Exercise
-
-Use the logarithm function `log()` to compute the logarithm of 10 in the console
-:::
-
+- Use the logarithm function `log()` to compute the logarithm of 10 in the console
 
 
 
@@ -101,33 +89,12 @@ You can view the "output" (result) of your code by either (a) *rendering* your q
 
 
 
-::: {.callout}
-## Exercise
+### Exercise
 
 Create a new code chunk and compute 4 times 5
-:::
 
 
-Solution: 
-
-```{r}
-4 * 5
-```
-
-
-::: {.callout}
-## Exercise
-
-Inside your code chunk above, add some code to compute 3 squared (`3^2`). What do you think will happen when you render your document? Will both lines of code be computed, or just the final one?
-:::
-
-
-Solution: 
-
-```{r}
-4 * 5
-3^2
-```
+Inside your code chunk, on a new line, add some code to compute 3 squared (`3^2`). What do you think will happen when you render your document? Will both lines of code be computed, or just the final one?
 
 
 
@@ -174,20 +141,16 @@ This `#|` syntax at the beginning of a code chunk corresponds to various options
 
 
 
-
-
-::: {.callout}
-## Exercise
+### Exercise
 
 Can you figure out what the output of the following code chunk will look like (will the code and code comment be shown in the output)? 
 
-``` {{r}}
+```{r}
 #| echo: true
-
 # two times three
 2 * 3
 ```
-:::
+
 
 
 
